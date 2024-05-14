@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
+    <header>
+        <a></a>
+        <nav>
+            <ul>
+                {% for page in pages %}
+                    <li><a href="{{ page.url }}" >{{ page.title }} </a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
     {{ content }}
 </body>
 </html>
