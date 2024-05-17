@@ -11,8 +11,8 @@
         <a></a>
         <nav>
             <ul>
-                {% for page in pages %}
-                    <li><a href="{{ page.url }}" >{{ page.title }} </a></li>
+                {% for pg in pages %}
+                    <li><a href="{{ page.url }}" >{{ pg.title }} </a></li>
                 {% endfor %}
             </ul>
         </nav>
