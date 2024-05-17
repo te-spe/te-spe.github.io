@@ -1,6 +1,6 @@
 ---
 title: About this site
-
+layout: base
 ---
 
 | Key | Value |
