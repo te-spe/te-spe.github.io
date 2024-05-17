@@ -11,9 +11,10 @@
         <a></a>
         <nav>
             <ul>
-                {% for pg in site.pages %}
+            {%- assign sorted_pages = site.pages | sort:"order" -%}
+                {%- for pg in sorted_pages -%}
                     <li><a href="{{ pg.url }}" >{{ pg.title }} </a></li>
-                {% endfor %}
+                {%- endfor -%}
             </ul>
         </nav>
     </header>
