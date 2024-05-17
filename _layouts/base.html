@@ -11,8 +11,7 @@
         <a></a>
         <nav>
             <ul>
-            {%- assign sorted_pages = site.pages | sort:"order" -%}
-                {%- for pg in sorted_pages -%}
+                {%- for pg in site.pages -%}
                     <li><a href="{{ pg.url }}" >{{ pg.title }} </a></li>
                 {%- endfor -%}
             </ul>

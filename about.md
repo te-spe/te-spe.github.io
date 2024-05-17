@@ -1,6 +1,7 @@
 ---
 title: About this site
 layout: base
+permalink: about
 ---
 
 | Key       | Value               |
