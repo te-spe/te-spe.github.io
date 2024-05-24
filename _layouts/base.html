@@ -8,9 +8,9 @@
 </head>
 <body>
     <header>
-        <a></a>
+        <a>{{site.titke}}</a>
         <nav>
-            <ul>
+            <ul class="nav-list">
                 {%- for pg in site.pages -%}
                     <li><a href="{{ pg.url }}" >{{ pg.title }} </a></li>
                 {%- endfor -%}

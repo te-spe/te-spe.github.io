@@ -1,3 +1,11 @@
 :root{
     color-scheme: dark;
 }
+
+.nav-list {
+    list-style: none;
+    
+    display: flex;
+    flex-direction: row;
+
+}
