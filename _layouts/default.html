@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page.title}} | te-spe.github.io </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
+</head>
+
+<body>
+    {% include header.html %}
+    <div id="menu" class="left">
+        <nav>
+            <ul>
+                {% if site.pages %}
+                {% for p in site.pages %}
+                {% if p.title %}
+                <li>
+                    {% if p.title == page.title %}<a href="{{p.url}}" class="bold">{{p.title}}</a>{% if page.toc or layout.toc %}{% include toc.html html=content id="toc" class="highlight" h_max=2 %}{% endif %}
+                    {% else %}<a href="{{p.url}}">{{p.title}}</a>{% endif %}
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+        <div id="skip">
+            <a href="#main"></a>
+        </div>
+    </div>
+    <main id="main">
+        <div class="inner">
+            {{content}}
+        </div>
+    </main>
+    {% include footer.html %}
+</body>
+
+</html>

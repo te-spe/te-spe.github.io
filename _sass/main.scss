@@ -1,0 +1,262 @@
+:root {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: "Noto Sans JP";
+  color-scheme: dark;
+  scroll-padding: 6rem;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: 1rem;
+}
+
+$width-left: 18rem;
+
+@mixin header-sub {
+  @include font-header;
+  line-height: 4rem;
+}
+
+@mixin header {
+  @include font-header-bold;
+  @include header-sub;
+}
+
+@mixin header-inner {
+  padding: 1rem 2rem;
+}
+
+@mixin header-div {
+  @include header;
+  content: "/";
+  color: map-get($light-colors, "f");
+  margin: 0 1rem;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: map-get($light-colors, "f") 0.4rem solid;
+  color: map-get($light-colors, "e");
+}
+
+code {
+  border: map-get($light-colors, "f") 1px solid;
+  background-color: map-get($dark-colors, "e");
+  padding: 2px 4px;
+}
+
+a {
+  color: map-get($accent-colors, "a");
+  text-decoration: none;
+}
+
+table {
+  border: 1px map-get($light-colors, "f") solid;
+}
+
+td,
+tr,
+th {
+  padding: 0.5rem;
+}
+
+@mixin page-grid {
+  grid-template-columns: $width-left 1fr;
+}
+
+body {
+  background-color: map-get($dark-colors, "b");
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "header     header"
+    "navigation main"
+    "footer     main";
+  grid-template-rows: 6rem 1fr 6rem;
+  @include page-grid;
+
+  @include mq(tb) {
+    grid-template-areas:
+      "header"
+      "navigation"
+      "main"
+      "footer";
+    grid-template-columns: auto;
+    grid-template-rows: minmax(6rem, min-content) auto auto 6rem;
+  }
+}
+
+#header {
+  @include font-header;
+  width: 100%;
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  @include page-grid;
+  grid-template-areas: "left right";
+  backdrop-filter: blur(10px);
+}
+
+#site-title {
+  @include header;
+  width: $width-left;
+  grid-area: left;
+  @include header-inner;
+
+  .inner {
+    position: relative;
+
+    &::after {
+      @include header-div;
+      margin-right: 0;
+    }
+  }
+}
+
+#page-url {
+  display: flex;
+  grid-area: right;
+  min-width: 0;
+  @include header-inner;
+}
+
+#page-dir {
+  color: map-get($light-colors, "f");
+  max-width: max-content;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @include header-sub;
+}
+
+.dir {
+  display: inline;
+
+  &::after {
+    @include header-div;
+  }
+
+  &:last-child {
+    padding-right: 1.75em;
+    &::after {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+#page-title {
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-grow: 1;
+  min-width: max-content;
+
+  @include header;
+  display: inline-block;
+  a {
+    color: inherit;
+  }
+}
+
+#menu {
+  line-height: 3rem;
+  grid-area: navigation;
+  position: relative;
+}
+
+nav {
+  padding: 2rem;
+  overflow-y: auto;
+  position: sticky;
+  top: 6rem;
+  height: max-content;
+  max-height: calc(100vh - 6rem);
+
+  ul {
+    margin-top: 0;
+    padding-left: 1rem;
+  }
+
+  li {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  a {
+    color: map-get($light-colors, "e");
+
+    &:hover {
+      color: map-get($light-colors, "b");
+    }
+  }
+}
+
+#skip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.2rem;
+  background-color: map-get($dark-colors, "e");
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+
+  @include mq(tb) {
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: map-get($dark-colors, "g");
+  }
+
+  a::after {
+    content: ">";
+    rotate: 90deg;
+    display: block;
+    text-align: center;
+  }
+}
+
+main {
+  grid-area: main;
+  background-color: map-get($dark-colors, "d");
+  .inner {
+    padding: 2rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+footer {
+  line-height: 2rem;
+  padding: 2rem;
+  grid-area: footer;
+}
+
+#copyright {
+  text-align: center;
+}
+
+.highlight {
+  color: map-get($light-colors, "c");
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a:hover {
+  color: map-get($light-colors, "d");
+}
