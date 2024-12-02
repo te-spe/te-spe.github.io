@@ -1,0 +1,16 @@
+<header id="header">
+    <div id="site-title" class="top left">
+        <div class="inner"><a href="/">{{site.title}}</a></div>
+    </div>
+    <div id="page-url" class="top">
+        <div id="page-dir">
+            {% assign dir = page.dir | split: '/' %}
+            {%- for part in dir -%}
+            {% if part != '' %}
+            <div class="dir">{{part}}</div>
+            {% endif %}
+            {%- endfor -%}
+        </div>
+        <h1 id="page-title"><a href="#">{{page.title}}</a></h1>
+    </div>
+</header>

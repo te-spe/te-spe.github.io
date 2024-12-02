@@ -1,0 +1,8 @@
+<figure>
+    <a href="{{ include.href }}">
+        <img src="{{ include.src }}" alt="{{ include.alt }}">
+    </a>
+    <figcaption>
+        {{ include.caption | default: "image" }}
+    </figcaption>
+</figure>
