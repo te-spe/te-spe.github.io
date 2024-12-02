@@ -10,4 +10,4 @@ order: 0
 
 ## This is te-spe's site.
 
-To be released within a few days
+To be officially released in a few days.
