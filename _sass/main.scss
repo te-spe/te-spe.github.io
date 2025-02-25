@@ -36,9 +36,10 @@ $width-left: 18rem;
 
 blockquote {
   margin: 0;
+  line-height: 2rem;
   padding-left: 1rem;
-  border-left: map-get($light-colors, "f") 0.4rem solid;
-  color: map-get($light-colors, "e");
+  border-left: map-get($light-colors, "i") 0.4rem solid;
+  color: map-get($light-colors, "f");
 }
 
 code {
