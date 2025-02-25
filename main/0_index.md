@@ -8,10 +8,7 @@ permalink: /index
 order: 0
 ---
 
-## Welcome to te-spe.github.io
-
-<small>This is te-spe's site.</small>  
-てーすぺ(te-spe)のサイトです。
+## Welcome to {{site.title}}
 
 ~~To be officially released in a few days.~~
 
